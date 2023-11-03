@@ -1,44 +1,43 @@
 package base;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Properties;
 
+import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utilities.Readpropertiesfiles;
 
-public class basefile {
-	Properties config_property = new Properties();
-	public static FileReader freader = null;
+public class basefile extends Readpropertiesfiles{
+	public  WebDriver driver = null;
 
-	@Test
+	@BeforeTest
 	public void setup() throws IOException {
-
-		freader = new FileReader(
-				System.getProperty("user.dir") + "//src/test/resources/configure/configuration.properties");
-		config_property.load(freader);
-
-		if (config_property.getProperty("browser").equalsIgnoreCase("chrome")) {
+		configuration();
+		locators();
+		if (C_Property.getProperty("browser").equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			WebDriver driver = new ChromeDriver();
+			driver = new ChromeDriver();
 			driver.manage().window().maximize();
+			
 		}
 
-		else if (config_property.getProperty("browser").equalsIgnoreCase("edge")) {
+		else if (C_Property.getProperty("browser").equalsIgnoreCase("edge")) {
 
 			WebDriverManager.edgedriver().setup();
-			WebDriver driver1 = new EdgeDriver();
-			driver1.manage().window().maximize();
-		} else if (config_property.getProperty("browser").equalsIgnoreCase("firefox")) {
+			driver = new EdgeDriver();
+			driver.manage().window().maximize();
+			driver.get(C_Property.getProperty("demoui2_url"));
+		} else if (C_Property.getProperty("browser").equalsIgnoreCase("firefox")) {
 
 			WebDriverManager.firefoxdriver().setup();
-			WebDriver driver1 = new FirefoxDriver();
-			driver1.manage().window().maximize();
+			driver = new FirefoxDriver();
+			driver.manage().window().maximize();
+			driver.get(C_Property.getProperty("demoui2_url"));
 		}
 	}
 }
