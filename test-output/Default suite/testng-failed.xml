@@ -6,7 +6,7 @@
       <class name="testcases.login">
         <methods>
           <include name="setup"/>
-          <include name="loginAo"/>
+          <include name="loginEo"/>
         </methods>
       </class> <!-- testcases.login -->
     </classes>

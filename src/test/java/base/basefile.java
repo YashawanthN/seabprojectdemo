@@ -23,7 +23,7 @@ public class basefile extends Readpropertiesfiles{
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			
+			driver.get(C_Property.getProperty("demoui2_url"));
 		}
 
 		else if (C_Property.getProperty("browser").equalsIgnoreCase("edge")) {
