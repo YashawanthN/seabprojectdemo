@@ -6,20 +6,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.BeforeTest;
-
+import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.Readpropertiesfiles;
 
 public class basefile extends Readpropertiesfiles{
 	public  WebDriver driver = null;
-
-	@BeforeTest
-	public void setup() throws IOException {
-		configuration();
-		locators();
+	
+	@BeforeSuite
+	public void launchurl() throws IOException {
+		configuration("configuration");
 		if (C_Property.getProperty("browser").equalsIgnoreCase("chrome")) {
+			//login_pom login = new login_pom(driver);
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
