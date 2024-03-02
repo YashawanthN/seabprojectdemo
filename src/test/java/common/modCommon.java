@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import Pages.mod_pom;
 
+
 public class modCommon {
 	WebDriver driver;
 
@@ -13,9 +14,15 @@ public class modCommon {
 		this.driver = driver;
 	}
 
-	public modProjectsCommon selectModerationProject() throws IOException {
+	public modProjectsCommon viewModerationProject() throws IOException {
 		mod_pom mod = new mod_pom(driver);
 		mod.getModprojects();
 		return new modProjectsCommon(driver);
 	}
+	
+	/*
+	 * public modCommon waitToVisibleElement() throws IOException { Waits exwait =
+	 * new Waits(driver); exwait.explicitWait(); //return new modCommon(driver);
+	 * return this; }
+	 */
 }
