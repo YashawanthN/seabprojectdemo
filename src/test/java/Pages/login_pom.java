@@ -1,17 +1,20 @@
 package Pages;
 
-import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import base.basefile;
+import utilities.readTestdata;
 
-public class login_pom extends basefile{
-	
+public class login_pom extends basefile {
+
 	WebDriver driver;
+
 	public login_pom(WebDriver driver) {
 
 		this.driver = driver;
@@ -27,21 +30,27 @@ public class login_pom extends basefile{
 	@FindBy(xpath = "/html/body/app-root/div/div/app-login/div[1]/div[2]/form/div/div[3]/button[1]")
 	public WebElement login_button;
 
-	
+	@Test(dataProvider = "testDataSeab", dataProviderClass = readTestdata.class)
+	public void enterEmail(String email) {
 
-	public void enterEmail() throws IOException {
-		configuration("configuration");
-		emailElement.sendKeys(C_Property.getProperty("eo"));
-
-	}
-
-	public void enterPass() throws IOException {
-		configuration("configuration");
-		PasswordElement.sendKeys(C_Property.getProperty("eo_pass"));
+		emailElement.sendKeys(email);
 
 	}
 
-	public void clickLogin() {
+	public void enterPass(String password) {
+
+		PasswordElement.sendKeys(password);
+
+	}
+
+	public String clickLogin() throws InterruptedException {
 		login_button.click();
+		Thread.sleep(5000);
+		String actualUrl = driver.getCurrentUrl();
+		System.out.println(driver.getCurrentUrl());
+		String homePageUrl = "https://ecw.excelindia.com/TESTR3/home";
+		return actualUrl;
+		
+		
 	}
 }

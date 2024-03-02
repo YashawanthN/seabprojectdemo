@@ -17,7 +17,7 @@ public class home_pom  {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//span[normalize-space()='Moderation Service']")
+	@FindBy(xpath = "//span[@class='fontSM' and text() = 'Moderation Service']")
 	public static WebElement Mod_Service;
 	
 	

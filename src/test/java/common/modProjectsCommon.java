@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 import Pages.ModProjects_pom;
 
-
 public class modProjectsCommon {
 
 	WebDriver driver;
@@ -15,11 +14,20 @@ public class modProjectsCommon {
 		this.driver = driver;
 
 	}
-	
+
 	public newProjectsCommon clickimportbutton() throws IOException {
 		ModProjects_pom modProjects = new ModProjects_pom(driver);
 		modProjects.getimportbutton();
 		return new newProjectsCommon(driver);
 	}
 
+	public modProjectsCommon selectSetupInprogressProject() {
+		ModProjects_pom modProjects = new ModProjects_pom(driver);
+		modProjects.getSetupInprogressHeader();
+		modProjects.getProjectName();
+		modProjects.getmenuContexts();
+		modProjects.getclickConfigure();
+		modProjects.clickSchedules();
+		return this;
+	}
 }

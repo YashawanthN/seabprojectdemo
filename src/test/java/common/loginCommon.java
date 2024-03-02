@@ -1,11 +1,10 @@
 package common;
 
-import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-
-
 import Pages.login_pom;
+import utilities.Waits;
+
 
 public class loginCommon {
 
@@ -14,18 +13,19 @@ public class loginCommon {
 	public loginCommon(WebDriver driver) {
 		this.driver = driver;
 	}
-
-	public loginCommon enterCredentials() throws IOException {
+	public loginCommon enterCredentials(String email, String password){
 		login_pom log = new login_pom(driver);
-		log.enterEmail();
-		log.enterPass();
+
+		log.enterEmail(email);
+		log.enterPass(password);
 		return this;
 	}
 
-	public homeCommon clickLogoinButton()
+	public homeCommon clickLoginButton() throws InterruptedException
 	{
 		login_pom log = new login_pom(driver);
 		log.clickLogin();
+		Waits.waitImplicit(driver, 60);
 		return new homeCommon(driver);
 	}
 
