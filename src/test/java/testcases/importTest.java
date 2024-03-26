@@ -4,20 +4,33 @@ import java.io.IOException;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+import Pages.mod_pom;
 import base.basefile;
-import common.loginCommon;
 import common.newProjectsCommon;
+import utilities.logInFunction;
 
 public class importTest extends basefile {
+	
+	public logInFunction logIn;
+	public mod_pom modPom;
+	
+	public importTest()
+	{
+		super();
+	}
 
 	@BeforeTest
+	public void setup()
+	{
+		initialization();
+		logIn = new logInFunction();
+		modPom = new mod_pom();
+		
+	}
+	@Test
 	public void navigateToImport() throws IOException {
-		loginCommon login = new loginCommon(driver);
-		login.enterCredentials()
-		.clickLoginButton()
-		.ClickModerationService()
-		.viewModerationProject().clickimportbutton();
+		logIn.logInToApplication().getmodService();
+		//modPom.getModprojects();
 	}
 	
 	//@Test
