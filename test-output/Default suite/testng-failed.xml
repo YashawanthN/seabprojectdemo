@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.importTest">
+      <class name="testcases.logIn">
         <methods>
-          <include name="navigateToImport"/>
           <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="loginMultipleCredentials" invocation-numbers="0"/>
         </methods>
-      </class> <!-- testcases.importTest -->
+      </class> <!-- testcases.logIn -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
