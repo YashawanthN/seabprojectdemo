@@ -14,6 +14,7 @@ public class homePage extends basefile{
 	
 	public home_pom home;
 	public logInFunction logIn;
+	
 	public homePage()
 	{
 		super();
@@ -25,7 +26,7 @@ public class homePage extends basefile{
 		initialization();
 		logIn = new logInFunction();
 		home = new home_pom();
-		logIn.logInToApplication();
+		logIn.logInToApplication(); // Menthod in utilities is used to log in to application
 	}
 	
 	@Test(priority = 1)
@@ -35,9 +36,10 @@ public class homePage extends basefile{
 		
 		String fullUser = "Welcome"+ " " +userName;
 		
-		Assert.assertTrue(fullUser.contains("eo1"));
+		Assert.assertTrue(fullUser.contains("eoy"));
 		
 	}
+	
 	@Test (priority = 2)
 	public void getServices()
 	{

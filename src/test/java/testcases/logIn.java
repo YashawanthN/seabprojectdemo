@@ -11,9 +11,11 @@ import utilities.Readpropertiesfiles;
 import utilities.readTestdata;
 
 public class logIn extends basefile {
+	
 	public login_pom login;
 
-	public logIn() {
+	public logIn() 
+	{
 		super();
 	}
 
