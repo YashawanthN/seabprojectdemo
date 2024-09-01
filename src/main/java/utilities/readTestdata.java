@@ -21,19 +21,15 @@ public class readTestdata extends Readpropertiesfiles{
 		paths("paths");
 		return getTestdata(Property.getProperty("testData"), 
 				Property.getProperty("sheetName_signIN"));
-
 	}
-
 	public static Object[][] getTestdata(String fileName, String sheetName) {
 		FileInputStream inputStream;
 		Object[][] testData = null;
 		try {
-
 			// Create an object of FileInputStream class to read excel file
 			inputStream = new FileInputStream(fileName);
 			workbook = WorkbookFactory.create(inputStream);
 			sheet = workbook.getSheet(sheetName);
-
 			int noOfRows = sheet.getLastRowNum();
 			System.out.println(noOfRows);
 			int noOfCols = sheet.getRow(0).getLastCellNum();

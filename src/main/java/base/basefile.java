@@ -17,9 +17,11 @@ public class basefile {
 
 	public static WebDriver driver;
 
-	public static void initialization() {
+	public static void initialization() 
+	{
 		
-		try {
+		try 
+		{
 			Readpropertiesfiles.configuration();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -36,7 +38,6 @@ public class basefile {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
-
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}

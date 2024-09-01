@@ -17,7 +17,7 @@ public class login_pom extends basefile {
 	public WebElement seabIcon;
 	
 	@FindBy (xpath = "//div [@class = 'login-head']")
-	public WebElement hearTitle;
+	public WebElement headerTitle;
 	
 	@FindBy(xpath = "//input [@type ='email']")
 	public WebElement emailElement;
@@ -30,6 +30,8 @@ public class login_pom extends basefile {
 	
 	@FindBy (xpath ="//div[@role='alertdialog']")
 	public WebElement validationMessage;
+	
+	
 
 	public String getTitle() {
 		return driver.getTitle();
@@ -42,7 +44,7 @@ public class login_pom extends basefile {
 	
 	public String getheaderTitle()
 	{
-		return hearTitle.getText();
+		return headerTitle.getText();
 	}
 	
 	public  boolean getemailfield()

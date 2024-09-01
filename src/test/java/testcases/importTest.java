@@ -25,7 +25,6 @@ public class importTest extends basefile {
 		initialization();
 		logIn = new logInFunction();
 		modPom = new mod_pom();
-		
 	}
 	@Test
 	public void navigateToImport() throws IOException {
@@ -59,7 +58,6 @@ public class importTest extends basefile {
 	}
 
 	@Test( priority = 3, description = " Search the exam centre by code and confirm that exam centre presented")
-
 	public void getexamcentrebycode() {
 		newProjectsCommon npm = new newProjectsCommon(driver);
 		npm.getViewExamcentres();
